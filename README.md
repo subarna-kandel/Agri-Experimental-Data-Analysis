@@ -2,6 +2,31 @@
 
 A GitHub-ready library of reusable R templates for agricultural, soil, water, grain, experimental-design, statistical, and spatial/GIS analysis. These scripts are guides: update the paths, column names, treatment codes, and study design to match your own data before running them.
 
+This root README combines the guidance from the README files located in
+`examples/README.md` and `docs/original_scripts_reference/README.md`. The
+original README files are kept in their respective directories so that the
+same guidance remains available next to the files it describes.
+
+If you have other scripts related to agricultural analysis, or would like to
+correct mistakes or update existing scripts, you are welcome to contribute.
+
+## Setup and use
+
+This repository includes the R scripts I used and uploaded as a reference for
+students conducting agricultural research. The codes are divided by purpose in
+the `R/` directory for easier use. These scripts were cleaned from my original
+scripts, which are kept in `docs/original_scripts_reference/`. You may use them
+as a starting point for your own research. Some code may not work as expected
+because it was uploaded directly from my computer. If you encounter a problem
+or need help, contact me at mail@subarnakandel.com.np
+
+
+
+## Data and validation status
+
+`examples/agricultural_example.csv` is synthetic and must not be reported as real research data. `docs/original_scripts_reference/` stores generalized, purpose-named versions of the user-supplied R scripts for reference; it may still include mistakes or incomplete code. The cleaned templates are reorganized examples and have **not been validated against the original study datasets**. Verify output and assumptions before using results in a thesis, report, or publication.
+
+
 ## Main topics
 
 - Data import, inspection, summaries, and data dictionary
@@ -36,58 +61,40 @@ examples/                         # synthetic demonstration data only
 docs/
   DATA_DICTIONARY_TEMPLATE.csv
   original_scripts_reference/     # generalized supplied reference scripts
-outputs/                          # generated files; not committed by default
+outputs/                          # output files (not committed and pushed to github)
 ```
 
-## Setup and use
+## Example data (`examples/`)
 
-1. Install R/RStudio and open this repository as the working directory.
-2. Install only the packages required by the script you intend to use. Common packages include:
+The file `examples/agricultural_example.csv` contains **synthetic illustrative
+values** created to demonstrate code structure. It is not real experimental
+data and must not be cited or interpreted as research findings.
 
-```r
-install.packages(c(
-  "readxl", "writexl", "dplyr", "ggplot2", "agricolae",
-  "Hmisc", "corrplot", "factoextra", "sf", "ggspatial"
-))
-```
+The example file is not guaranteed to represent a valid randomized layout for
+every analysis. Replace it with data from an experiment whose design and
+treatment allocation are known before drawing scientific conclusions. The
+source README for this material is
+[`examples/README.md`](examples/README.md).
 
-3. Copy your dataset into a suitable local folder (for example `data/`) or change each script's `data_file` / path setting.
-4. Inspect the column names using `names(dat)` and update all selected columns. Never assume that example names such as `Treatment`, `PlantHeight`, `longitude`, or `lab_id` exist in your file.
-5. Run individual scripts from the repository root. Example:
+## Original scripts reference (`docs/original_scripts_reference/`)
 
-```r
-source("R/09_hypothesis_testing/01_two_group_tests.R")
-source("R/10_soil_water_grain/01_correlation_matrix_and_pair.R")
-source("R/12_spatial_gis/01_study_area_map.R")
-```
+This directory contains the supplied reference scripts with purpose-based
+filenames. Personal computer paths, usernames, thesis-directory names, and
+study-specific place names have been removed. The analysis steps and package
+choices are otherwise retained as closely as possible.
 
-For a single end-to-end analysis, edit the settings at the top of
-`R/14_complete_workflow.R` (`data_file`, `group_col`, `block_col`, and
-`primary_response`) and run:
+Replace the representative paths in these scripts with files available in
+your own project:
 
-```r
-source("R/14_complete_workflow.R")
-```
+- `data/*.csv` for CSV input tables
+- `data/*.xlsx` for Excel input tables
+- `data/study_area_boundary.shp` for a study-area boundary
+- `data/land_use_raster.tif` for a land-use raster
+- `outputs/` for generated tables, figures, and reports
 
-The focused scripts include `R/06_correlation/02_grouped_soil_water_correlation.R`
-for overall and treatment-wise correlations,
-`R/07_pca/02_multivariate_analysis.R` for PCA/clustering/MANOVA/CCA/factor
-analysis, `R/10_soil_water_grain/03_grain_quality_tests.R` for grain-style
-two-group tests and boxplots, and
-`R/10_soil_water_grain/04_response_anova.R` for repeated soil/water/grain
-response ANOVA, Tukey HSD, and SEM output.
-
-## Statistical and spatial cautions
-
-- Select the statistical model from the actual sampling and experimental design. Observations from blocks, repeated measures, paired samples, or nested sampling may require a model other than a simple one-way ANOVA or two-sample test.
-- A Shapiro-Wilk test does not by itself determine which inferential test should be used. Inspect residuals and plots, sample size, independence, variance structure, and the scientific question.
-- SEM describes uncertainty in an estimated mean; it is not the standard deviation of observations.
-- Correlation is not evidence of causation. Spearman correlation is rank-based; the plotted linear trend is only a visual aid and is not itself a Spearman fit.
-- For spatial work, verify coordinate reference systems, coordinate column names, boundary validity, and the intended sampling method. `st_sample()` generates locations inside polygon geometry; it is different from sampling polygon rows.
-- Multi-response loops can produce many p-values. Consider multiplicity, effect sizes, confidence intervals, and pre-specified hypotheses.
-
-## Data and validation status
-
-`examples/agricultural_example.csv` is synthetic and must not be reported as real research data. `docs/original_scripts_reference/` stores generalized, purpose-named versions of the user-supplied R scripts for reference; it may still include mistakes or incomplete code. The cleaned templates are reorganized examples and have **not been validated against the original study datasets**. Verify output and assumptions before using results in a thesis, report, or publication.
-
-Only publish datasets you have permission to share. Add a repository license only after deciding what reuse permissions you intend to grant.
+These scripts are reference material and may still contain different expected
+column names, experimental designs, or package requirements. Inspect the data
+import and model settings before running a script. The cleaned, maintained
+versions for routine use are in the repository's `R/` directory. The source
+README for this material is
+[`docs/original_scripts_reference/README.md`](docs/original_scripts_reference/README.md).
