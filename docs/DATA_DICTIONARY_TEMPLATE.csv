@@ -1,0 +1,6 @@
+variable_name,description,unit_or_scale,data_type,allowed_values_or_codes,missing_value_rule,notes
+Treatment,Experimental treatment,category,categorical,Describe actual treatment levels,Blank means missing,Example field only
+Replication,Replication or block identifier,category,categorical,Describe levels,coded as missing if absent,Must match actual design
+Yield,Crop yield,Specify unit,numeric,Non-negative values if appropriate,Blank means missing,Record harvest area and moisture basis
+PlantHeight,Plant height,Specify unit,numeric,Positive values,Blank means missing,Describe measurement stage
+LeafCount,Leaf count,count,numeric,Non-negative integers,Blank means missing,Describe sampling method

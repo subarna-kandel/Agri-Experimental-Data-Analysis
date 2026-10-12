@@ -1,0 +1,11 @@
+.Rhistory
+.RData
+.Ruserdata
+.Rproj.user/
+outputs/*
+!outputs/.gitkeep
+
+# Do not accidentally publish private/raw datasets.
+data/private/
+data/raw/
+*.tmp

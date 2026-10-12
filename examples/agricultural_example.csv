@@ -1,0 +1,13 @@
+Genotype,Treatment,Replication,Variety,Mulching,Yield,PlantHeight,LeafCount
+G1,T1,1,V1,No,2.8,34.2,12
+G1,T1,2,V1,No,3.0,35.1,13
+G1,T1,3,V1,No,2.9,34.8,12
+G2,T2,1,V1,Yes,3.4,38.5,15
+G2,T2,2,V1,Yes,3.6,39.1,16
+G2,T2,3,V1,Yes,3.5,38.8,15
+G3,T3,1,V2,No,3.1,36.0,13
+G3,T3,2,V2,No,3.2,36.4,14
+G3,T3,3,V2,No,3.0,35.8,13
+G4,T4,1,V2,Yes,3.9,42.0,18
+G4,T4,2,V2,Yes,4.1,42.8,19
+G4,T4,3,V2,Yes,4.0,42.3,18
